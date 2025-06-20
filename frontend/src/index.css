@@ -1,0 +1,131 @@
+/* src/index.css */
+main {
+  min-height: 80vh;
+}
+
+/* Amazon Header Colors */
+.header-primary {
+  background-color: #131921;
+}
+
+.header-secondary {
+  background-color: #232f3e;
+}
+
+/* Search Bar */
+.search-select {
+  background-color: #f3f3f3;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #ced4da;
+  border-right: none;
+}
+
+.search-input {
+  border-radius: 0 !important;
+}
+
+.search-button {
+  background-color: #febd69;
+  border: 1px solid #febd69;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.search-button:hover {
+  background-color: #f3a847;
+  border: 1px solid #f3a847;
+}
+.search-icon {
+  color: #131921;
+}
+
+/* Category Bubbles */
+/* === HORIZONTAL CATEGORY ROW STYLES === */
+/* Add or replace these styles in src/index.css */
+
+.category-row-container {
+  display: flex; /* Key property to make children align horizontally */
+  overflow-x: auto; /* Allows horizontal scrolling on touch/mouse */
+  padding: 1rem 0;
+  /* Hide scrollbar for a cleaner look */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.category-row-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+/* We wrap each card in a flex-shrink: 0 div to prevent them from squishing */
+.category-item-wrapper {
+    flex: 0 0 auto; /* Prevents items from shrinking */
+    padding: 0 10px; /* Adds spacing between items */
+}
+
+.category-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.category-card {
+  text-align: center;
+  cursor: pointer;
+  width: 120px; /* Set a fixed width for each card container */
+}
+
+.category-image-wrapper {
+  width: 100px; /* Smaller circle size */
+  height: 100px; /* Smaller circle size */
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden; /* This is important to keep the image contained in the circle */
+  border: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.category-card:hover .category-image-wrapper {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image cover the circle without distortion */
+}
+
+.category-card h6 { /* Using h6 for smaller font */
+  margin-top: 0.75rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Promotional Banner */
+.promo-banner {
+    background-color: #f89934;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+}
+
+.promo-banner h1 {
+    font-weight: bold;
+}
+
+.promo-banner .btn-order {
+    background-color: #000;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    border: none;
+}
+
+.promo-banner .tnc {
+    text-align: right;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
