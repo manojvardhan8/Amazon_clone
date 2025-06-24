@@ -9,6 +9,11 @@ const productSchema = mongoose.Schema({
   category: { type: String, required: true },
   subCategory: { type: String, required: false }, 
   price: { type: Number, required: true, default: 0 },
+  mrp: { type: Number, required: false },
+  isBestSeller: { type: Boolean, default: false },
+  isLimitedTimeDeal: { type: Boolean, default: false },
+  colors: { type: [String], default: [] },
+  boughtInPastMonth: { type: Number, default: 0 }, 
   countInStock: { type: Number, required: true, default: 0 },
   rating: {type: Number, required:true,defaul:2 },
   numReviews: {type:Number,required:false}

@@ -1,6 +1,7 @@
 // frontend/src/components/Header.js (Corrected and Explained)
 
 import React from 'react';
+import { Badge } from 'react-bootstrap'; 
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,6 +10,7 @@ import { logout } from '../slices/authSlice'; // Import the logout action
 const Header = () => {
   // Get the user's info from the global Redux state
   const { userInfo } = useSelector((state) => state.auth);
+  const { cartItems } = useSelector((state) => state.cart); 
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,22 +27,51 @@ const Header = () => {
     }
   };
 
-  return (
+//   return (
+//     <header>
+//       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+//         <Container>
+//           <Navbar.Brand as={Link} to="/">
+//             AmazonClone
+//           </Navbar.Brand>
+//           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+//           <Navbar.Collapse id="basic-navbar-nav">
+//             <Nav className="ms-auto">
+//               <Nav.Link as={Link} to="/cart">
+//                 <i className="fas fa-shopping-cart"></i> Cart
+//               </Nav.Link>
+
+//               {/* === THIS IS THE KEY LOGIC === */}
+
+              
+//             </Nav>
+//           </Navbar.Collapse>
+//         </Container>
+//       </Navbar>
+//     </header>
+//   );
+// };
+
+return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <Navbar.Brand as={Link} to="/">
-            AmazonClone
-          </Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">AmazonClone</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              {/* Updated Cart Link */}
               <Nav.Link as={Link} to="/cart">
                 <i className="fas fa-shopping-cart"></i> Cart
+                {cartItems.length > 0 && (
+                  <Badge pill bg="success" style={{ marginLeft: '5px' }}>
+                    {cartItems.reduce((acc, currentItem) => acc + currentItem.qty, 0)}
+                  </Badge>
+                )}
               </Nav.Link>
 
-              {/* === THIS IS THE KEY LOGIC === */}
-              { userInfo ? (
+              {/* ... userInfo logic ... */}
+                            { userInfo ? (
                 // If userInfo exists (user is logged in), show the dropdown menu.
                 <NavDropdown title={`Hi, ${userInfo.name}`} id='username'>
 
@@ -72,5 +103,7 @@ const Header = () => {
     </header>
   );
 };
+
+
 
 export default Header;

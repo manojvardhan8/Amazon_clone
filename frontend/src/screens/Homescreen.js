@@ -8,6 +8,8 @@ import { Row, Col, Container, Button } from 'react-bootstrap';
 //import categories from '../categories'; // Import our static data
 import CategoryCard from '../components/CategoryCard'; // Import our new component
 
+
+
 const fashionCategories = [
     { name: "Men's Fashion", image: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
     { name: "Women's Fashion", image: "https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },

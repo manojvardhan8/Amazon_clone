@@ -129,3 +129,157 @@ main {
     font-size: 0.8rem;
     margin-top: 1rem;
 }
+/* === AMAZON-STYLE PRODUCT CARD === */
+.product-card-amazon {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'Amazon Ember', Arial, sans-serif;
+  position: relative;
+}
+
+.bestseller-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #c45500;
+  color: white;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-bottom-right-radius: 4px;
+  z-index: 2;
+}
+
+.product-image-container {
+  background-color: #f7f7f7;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-image-container img {
+  max-height: 200px;
+  width: auto;
+  max-width: 100%;
+}
+
+.product-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Makes the body take remaining space */
+}
+
+.product-colors {
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 5px;
+}
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.color-swatch-more {
+    font-size: 0.8rem;
+    color: #555;
+    align-self: center;
+}
+
+
+.product-brand {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0F1111;
+  margin-bottom: 0.25rem;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  color: #0F1111;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #007185;
+}
+.product-rating .stars {
+    color: #FFA41C;
+}
+.product-rating .review-count {
+    margin-left: 0.5rem;
+}
+
+.bought-in-past-month {
+    font-size: 0.8rem;
+    color: #565959;
+    margin-top: 0.25rem;
+}
+
+.price-section {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+.current-price {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #0F1111;
+}
+.mrp-price {
+    font-size: 0.8rem;
+    color: #565959;
+    text-decoration: line-through;
+}
+.discount {
+    font-size: 0.8rem;
+    color: #B12704;
+}
+
+.limited-deal-tag {
+    background-color: #B12704;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.delivery-info {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+.delivery-info .prime-logo {
+    color: #007185;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  background-color: #FFD814;
+  border-color: #FCD200;
+  color: #0F1111;
+  margin-top: auto; /* Pushes button to the bottom */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #F7CA00;
+  border-color: #F2C200;
+}

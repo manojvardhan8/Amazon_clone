@@ -1,6 +1,6 @@
 // frontend/src/slices/authSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-
+import { clearCartItems } from './cartSlice';
 const initialState = {
   userInfo: localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))

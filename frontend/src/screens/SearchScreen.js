@@ -92,7 +92,7 @@ const SearchScreen = () => {
                   <p>No products found.</p>
               ) : (
                 products.map((product) => (
-                  <Col key={product._id} sm={12} md={6} lg={4}>
+                  <Col key={product._id} sm={12} md={6} lg={4} className="mb-4">
                     <Product product={product} />
                   </Col>
                 ))

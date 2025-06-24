@@ -1,6 +1,7 @@
 // backend/controllers/userController.js
 import User from '../models/userModel.js';
 import generateToken from '../utils/generateToken.js';
+import Cart from '../models/cartModel.js'; 
 
 // @desc    Auth user & get token (Login)
 // @route   POST /api/users/login
@@ -29,22 +30,25 @@ const authUser = async (req, res) => {
 // @access  Public
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-
   const userExists = await User.findOne({ email });
 
   if (userExists) {
     return res.status(400).json({ message: 'User already exists' });
   }
 
-  const user = await User.create({
-    name,
-    email,
-    password,
-  });
+  const user = await User.create({ name, email, password });
 
   if (user) {
-    generateToken(res, user._id);
+    // --- CREATE THE CART ---
+    console.log(`--- User Created with ID: ${user._id} ---`);
 
+    // Create the cart for the new user
+    const newCart = await Cart.create({ user: user._id, cartItems: [] });
+    console.log(`--- Cart Created with user ID: ${newCart.user} ---`);
+
+    // -----------------------
+
+    generateToken(res, user._id);
     res.status(201).json({
       _id: user._id,
       name: user.name,
@@ -55,5 +59,6 @@ const registerUser = async (req, res) => {
     res.status(400).json({ message: 'Invalid user data' });
   }
 };
+
 
 export { authUser, registerUser };
