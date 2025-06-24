@@ -1,7 +1,7 @@
 // src/screens/HomeScreen.js (Dynamic Version)
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import axios
+import axios from '../axios'; // Import axios
 
 import Product from '../components/Product'; // We will create this component next
 import { Row, Col, Container, Button } from 'react-bootstrap';
