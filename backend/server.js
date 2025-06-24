@@ -15,9 +15,10 @@ connectDB(); // Connect to MongoDB
 const app = express();
 
 const allowedOrigins = [
-  'http://localhost:3000',          // React local dev server
-  process.env.FRONTEND_URL          // Your deployed frontend URL
+  'http://localhost:3000',  // for local dev
+  'https://amazon-clone-mu-drab.vercel.app' // your frontend domain
 ];
+
 
 const corsOptions = {
   origin: function (origin, callback) {
