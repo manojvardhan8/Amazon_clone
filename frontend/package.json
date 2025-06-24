@@ -43,7 +43,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://amazon-clone-mp2a.vercel.app/",
   "devDependencies": {
     "webpack-cli": "^6.0.1"
   }
