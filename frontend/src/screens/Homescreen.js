@@ -39,7 +39,7 @@ const HomeScreen = () => {
     const fetchProducts = async () => {
       // Make a GET request to our backend API endpoint for products.
       // Because of the proxy we set up, '/api/products' will correctly go to 'http://localhost:5000/api/products'.
-      const { data } = await axios.get('/api/products');
+      const { data } = await fetch('/api/products');
       console.log("Products:",products);
       setProducts(data); // Update our state with the data from the API
     };
