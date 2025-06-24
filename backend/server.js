@@ -13,26 +13,23 @@ dotenv.config(); // Load environment variables from .env file
 connectDB(); // Connect to MongoDB
 
 const app = express();
-
 const allowedOrigins = [
-  'http://localhost:3000',  // for local dev
-  'https://amazon-clone-mu-drab.vercel.app' // your frontend domain
+  'http://localhost:3000',  // local dev
+  'https://amazon-clone-mu-drab.vercel.app'  // deployed frontend
 ];
-
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, Postman)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.error('Blocked by CORS:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true
 };
 
-// Use CORS with the specified options
 app.use(cors(corsOptions));
 
 // Middleware
@@ -42,6 +39,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Cookie parser middleware
 app.use(cookieParser()); 
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/cart', cartRoutes);
